@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<script setup lang="ts" name="charts">
+<script setup lang="ts" name="components-charts">
 import { defineAsyncComponent} from 'vue';
 const barCharts:object = defineAsyncComponent(() => import('@c/charts/barCharts.vue'));
 
