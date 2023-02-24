@@ -32,7 +32,7 @@
       </div>
       <div class="main-wrapper">
         <el-scrollbar style="height: 100%">
-          <ViewsComponents :status="state.status"/>
+          <ViewsComponents :status="state.status" />
         </el-scrollbar>
       </div>
       <div class="config-wrapper" v-if="state.status == 'edit'">
@@ -200,10 +200,10 @@ const handleComponents = (data) => {
     name: str,
     comKey: arr.length,
     style: {
-      width:computedValue(str,'width'),
-      height:computedValue(str,'height'),
-      left:0,
-      top:0,
+      width: computedValue(str, "width"),
+      height: computedValue(str, "height"),
+      left: 0,
+      top: 0,
     },
   };
   arr.push(params);
@@ -215,22 +215,36 @@ const handleComponents = (data) => {
   stores.setComponents(obj);
 };
 
-
-const computedValue = (str,type)=>{
-  if(str == 'Layouts'){
-    return type == 'width'?1920:1080
-  }else if(str == 'Modules'){
-    return type == 'width'?400:200
-  }else{
-    return 'auto'
+const computedValue = (str, type) => {
+  if (str == "Layouts") {
+    return type == "width" ? 1920 : 1080;
+  } else if (str == "Modules") {
+    return type == "width" ? 400 : 200;
+  } else {
+    return;
   }
-
-}
+};
 const handleView = () => {
   if (state.status == "view") {
     state.status = "edit";
+    let arr = componentsStatus.value.components;
+    let str = componentsStatus.value.name;
+    let obj = {
+      name: str,
+      status: "edit",
+      components: arr,
+    };
+    stores.setComponents(obj);
   } else {
     state.status = "view";
+    let arr = componentsStatus.value.components;
+    let str = componentsStatus.value.name;
+    let obj = {
+      name: str,
+      status: "view",
+      components: arr,
+    };
+    stores.setComponents(obj);
   }
 };
 

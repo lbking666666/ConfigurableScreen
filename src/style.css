@@ -66,6 +66,36 @@ button:focus-visible {
   width: 100%;
 }
 
+.configs-box  .form-col {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.configs-box  .form-col .form-label {
+  width: 78px;
+  text-align: right;
+  margin-right: 12px;
+  font-size: 12px;
+  color: #454545;
+  line-height: 32px;
+}
+
+.configs-box  .form-col .value-col {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  
+}
+.configs-box  .form-col .value-col .col-lable {
+  padding-right: 12px;
+  font-size: 13px;
+  color: #999;
+}
+.configs-box  .form-col .value-col .col-lable:after {
+  content: "：";
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

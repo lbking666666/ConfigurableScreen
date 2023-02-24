@@ -33,7 +33,7 @@ loadComponents();
 watch(
 	pinia.state,
 	(val) => {
-		console.log(val)
+		//console.log(val)
 	},
 	{
 		deep: true,

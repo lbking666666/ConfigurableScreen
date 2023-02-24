@@ -12,7 +12,8 @@ export const currentComponentsStatus = defineStore('componentsStore', {
             status:"",
 			components:[]
         },
-		comIndex:0
+		comIndex:0,
+		componentsCurIndex:0
 	}),
 	actions: {
 		setComponents(obj: Object) {
@@ -20,6 +21,9 @@ export const currentComponentsStatus = defineStore('componentsStore', {
 		},
 		setComIndex(num:Number){
 			this.comIndex = num
+		},
+		setComCurIndex(num:Number){
+			this.componentsCurIndex = num
 		}
 	},
 });
