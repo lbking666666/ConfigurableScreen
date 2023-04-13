@@ -9,8 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@jiaminghi/data-view": "^2.10.0",
+    "@smallwei/avue": "^2.10.11",
     "element-plus": "^2.2.29",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-codemirror": "^6.1.1",
+    "vue-json-editor": "^1.4.3",
+    "vue-ruler-tool": "^1.2.4",
+    "vue-superslide": "^0.1.1",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

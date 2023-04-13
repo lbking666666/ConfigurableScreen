@@ -8,9 +8,6 @@
 </template>
 
 <style>
-body {
-  height: 100vh;
-}
 *{
   box-sizing: border-box;
 }

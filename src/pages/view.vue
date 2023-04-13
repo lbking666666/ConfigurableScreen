@@ -1,18 +1,16 @@
 <template>
   <div class="big-screen-wrapper">
-    <div class="screen-header">
-      <Header />
-    </div>
-   
-    <div class="screen-body">
-      <div class="layer">
-        <el-scrollbar>
-          <Asider />
-        </el-scrollbar>
+    <div class="screen-header" v-if="state.status != 'finished'">
+      <div class="buttons-list">
+        <el-button type="primary" @click="handleView">{{
+          state.status == "edit" ? "预览" : "返回"
+        }}</el-button>
+        <el-button type="success" @click="handleSave">保存</el-button>
       </div>
-     <!-- <div class="sider-wrapper" v-if="state.status == 'edit'">
-      
-         <el-scrollbar>
+    </div>
+    <div class="screen-body">
+      <div class="sider-wrapper" v-if="state.status == 'edit'">
+        <el-scrollbar>
           <div
             class="column"
             v-for="(item, index) in state.siderList"
@@ -30,8 +28,8 @@
               </div>
             </div>
           </div>
-        </el-scrollbar> 
-      </div>-->
+        </el-scrollbar>
+      </div>
       <div class="main-wrapper">
         <el-scrollbar style="height: 100%">
           <ViewsComponents :status="state.status" />
@@ -64,12 +62,6 @@ import { storeToRefs } from "pinia";
 const storesComponentsStatus = currentComponentsStatus();
 const { componentsStatus } = storeToRefs(storesComponentsStatus);
 //引入组件
-const Header: object =  defineAsyncComponent(
-  () => import("@c/ConfigureLayouts/header.vue")
-);
-const Asider: object =  defineAsyncComponent(
-  () => import("@c/ConfigureLayouts/asider.vue")
-);
 const ChartComponents: object = defineAsyncComponent(
   () => import("@c/charts/index.vue")
 );
@@ -81,6 +73,7 @@ const ConfigComponents: object = defineAsyncComponent(
 );
 
 //定义变量
+
 const state: object = reactive({
   siderList: [
     {
@@ -259,23 +252,35 @@ const handleSave = () => {};
 </script>
 <style scoped lang="less">
 .big-screen-wrapper {
-  height:100%;
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
   .screen-header {
+    height: 54px;
+    margin-bottom: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #dcdfe6;
+    background: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
     z-index: 9;
-    height:45px;
   }
   .screen-body {
-    width: 100%;
-    height: calc(100% - 45px);
     display: flex;
-    .layer{
-      width: 180px;
+    justify-content: space-between;
+    align-items: flex-start;
     height: 100%;
-    overflow: hidden;
-    overflow-y: auto;
-    color: #bcc8d4;
-    background: #1d1f26;
-    }
+    padding-top: 54px;
   }
   .sider-wrapper {
     width: 200px;

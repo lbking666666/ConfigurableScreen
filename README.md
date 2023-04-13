@@ -18,6 +18,7 @@ pages 页面文件夹
    - login 登录界面
    - list 列表界面
    - main 操作界面
+   - view 预览界面
 components 组件文件夹
    - charts
       - lineCharts 折线图
@@ -33,4 +34,16 @@ api 接口文件夹
 assets 资源文件夹
 router 路径文件夹
 
+所有的组件状态astatus都存储到vuex中
+初始化读取接口的组件状态
+
+操作历史记录
+vuex 创建一个数组 每次操作更改往数组里面存储当前的astatus 回退操作让数据逻辑到回退节点 前进操作让数据逻辑到当前节点
+
+
+图表组件配置
+判断是否为代码配置
+代码配置读取json数据渲染
+非代码配置options每项设置配置项
+数据单独走 options.data 单独提出来
 

@@ -1,0 +1,249 @@
+{
+    "list": [
+        {
+            "name": "图表",
+            "icon": "zhuzhuangtutubiao",
+            "children": [
+                {
+                    "name": "柱形图",
+                    "icon": "zhuzhuangtutubiao",
+                    "children": [
+                        {
+                            "name": "柱形图",
+                            "image": "./barcharts/bar_01.png",
+                            "components": "@c/barCharts/BasicBar/index.vue",
+                            "configs": "@c/barCharts/BasicBar/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-simple"
+                        },
+                        {
+                            "name": "横向柱形图",
+                            "image": "./barcharts/bar_02.png",
+                            "components": "@c/barCharts/HorizontalBar/index.vue",
+                            "configs": "@c/barCharts/HorizontalBar/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category"
+                        },
+                        {
+                            "name": "堆叠柱形图",
+                            "image": "./barcharts/bar_03.png",
+                            "components": "@c/barCharts/StackedBar/index.vue",
+                            "configs": "@c/barCharts/StackedBar/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-stack"
+                        }
+                    ]
+                },
+                {
+                    "name": "折线图",
+                    "icon": "tubiao-zhexiantu",
+                    "children": [
+                        {
+                            "name": "普通折线图",
+                            "image": "./linecharts/line_01.png",
+                            "components": "@c/linecharts/BasicLine/index.vue",
+                            "configs": "@c/linecharts/BasicLine/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=line-simple"
+                        },
+                        {
+                            "name": "面积图",
+                            "image": "./linecharts/line_02.png",
+                            "components": "@c/linecharts/AreaLine/index.vue",
+                            "configs": "@c/linecharts/AreaLine/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=area-basic"
+                        },
+                        {
+                            "name": "纵向折线图",
+                            "image": "./linecharts/line_03.png",
+                            "components": "@c/linecharts/CategoryLine/index.vue",
+                            "configs": "@c/linecharts/CategoryLine/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=line-y-category"
+                        }
+                    ]
+                },
+                {
+                    "name": "饼图",
+                    "icon": "bingtu",
+                    "children": [
+                        {
+                            "name": "普通饼图",
+                            "image": "./piecharts/pie_01.png",
+                            "components": "@c/piecharts/BasicPie/index.vue",
+                            "configs": "@c/piecharts/BasicPie/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-simple"
+                        },
+                        {
+                            "name": "南丁格尔玫瑰",
+                            "image": "./piecharts/pie_02.png",
+                            "components": "@c/piecharts/RosePie/index.vue",
+                            "configs": "@c/piecharts/RosePie/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-roseType-simple"
+                        },
+                        {
+                            "name": "环形饼图",
+                            "image": "./piecharts/pie_03.png",
+                            "components": "@c/piecharts/DoughnutPie/index.vue",
+                            "configs": "@c/piecharts/DoughnutPie/config.vue",
+                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-doughnut"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "装饰",
+            "icon": "zhuangshizhuangxiu",
+            "children": [
+                {
+                    "name": "边框",
+                    "icon": "biankuang",
+                    "children": [
+                        {
+                            "name": "边框1",
+                            "image": "./border/border_01.gif",
+                            "components": "@c/borders/Border1/index.vue",
+                            "configs": "@c/borders/Border1/config.vue",
+                            "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-1"
+                        },
+                        {
+                            "name": "边框2",
+                            "image": "./border/border_02.png",
+                            "components": "@c/borders/Border2/index.vue",
+                            "configs": "@c/borders/Border2/config.vue",
+                            "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-2"
+                        },
+                        {
+                            "name": "边框3",
+                            "image": "./border/border_03.png",
+                            "components": "@c/borders/Border3/index.vue",
+                            "configs": "@c/borders/Border3/config.vue",
+                            "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-3"
+                        }
+                    ]
+                },
+                {
+                    "name": "图片",
+                    "icon": "tupian",
+                    "children": [
+                        {
+                            "name": "图片",
+                            "image": "./pic/img_01.png",
+                            "components": "@c/image/index.vue",
+                            "configs": "@c/image/config.vue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "文本类",
+            "icon": "hengpai",
+            "children": [
+                {
+                    "name": "文本框",
+                    "icon": "hengpai",
+                    "children": [
+                        {
+                            "name": "普通文字",
+                            "image": "./text/text_01.png",
+                            "components": "@c/texts/Text/index.vue",
+                            "configs": "@c/texts/Text/config.vue"
+                        },
+                        {
+                            "name": "滚动文字",
+                            "image": "./text/text_03.gif",
+                            "components": "@c/tables/ScrollText/index.vue",
+                            "configs": "@c/tables/ScrollText/config.vue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "表格",
+            "icon": "biaoge",
+            "children": [
+                {
+                    "name": "表格",
+                    "icon": "biaoge",
+                    "children": [
+                        {
+                            "name": "普通表格",
+                            "image": "./table/table_01.png",
+                            "components": "@c/tables/Table/index.vue",
+                            "configs": "@c/tables/Table/config.vue"
+                        },
+                        {
+                            "name": "滚动表格",
+                            "image": "./table/table_03.gif",
+                            "components": "@c/tables/ScrollTable/index.vue",
+                            "configs": "@c/tables/ScrollTable/config.vue"
+                        }
+                    ]
+                },
+                {
+                    "name": "排名表",
+                    "icon": "tupian",
+                    "children": [
+                        {
+                            "name": "排名表",
+                            "image": "./table/table_02.gif",
+                            "components": "@c/tabls/Ranks/index.vue",
+                            "configs": "@c/tabls/Ranks/config.vue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "地图",
+            "icon": "iconmaplocation",
+            "children": [
+                {
+                    "name": "二维地图",
+                    "icon": "iconmaplocation",
+                    "children": [
+                        {
+                            "name": "地图",
+                            "image": "./map/map.png",
+                            "components": "@c/maps/Map/index.vue",
+                            "configs": "@c/maps/Map/config.vue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "其他",
+            "icon": "flop",
+            "children": [
+                {
+                    "name": "选项卡",
+                    "icon": "xuanxiangka",
+                    "children": [
+                        {
+                            "name": "选项卡",
+                            "image": "./other/tab_01.png",
+                            "components": "@c/Tab/index.vue",
+                            "configs": "@c/Tab/config.vue"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "保存",
+            "icon": "baocun"
+        },
+        {
+            "name": "预览",
+            "icon": "view"
+        },
+        {
+            "name": "撤销",
+            "icon": "refresh-left"
+        },
+        {
+            "name": "前进",
+            "icon": "refresh-right"
+        }
+
+    ]
+}
