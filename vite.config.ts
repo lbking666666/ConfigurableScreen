@@ -14,7 +14,7 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      imports:['vue'],
+      imports: ['vue'],
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({
@@ -45,6 +45,7 @@ export default defineConfig({
   },
   resolve: {
     //设置便捷图片路径引用
+    extensions: ['.js', '.less', '.sass', '.css', '.vue'],
     alias: {
       "/images": "src/assets/images/", //这里不能通过path模块解析路径的写法
       "@": resolve(__dirname, "./src/"), //配置别名路径

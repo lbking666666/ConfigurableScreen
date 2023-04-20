@@ -1,27 +1,38 @@
 <template>
   <div class="title">图层</div>
-  <Draggable
-    item-key="uid"
-    :list="statusList"
-    ghost-class="ghost"
-    @change="onMoveCallback"
-  >
+  <Draggable item-key="uid" :list="state.siderList" @change="onMoveCallback">
     <template v-slot:item="{ element }">
-      <div class="layer-item">
+      <div v-if="element.name != 'layout'" class="layer-item" :class="{ 'is-active': curIndex == element.index }"
+        @click.stop="handleChangeCur(element.index)">
         <span class="icon iconfont" :class="'icon-' + element.icon"></span>
-        <span>{{ element.name }}</span>
+        <span>{{ element['zh-name'] }}</span>
       </div>
     </template>
   </Draggable>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
+import { reactive } from "vue";
 import Draggable from "vuedraggable";
 //引入pinia状态
 import { storeToRefs } from "pinia";
 import { allStatus } from "@/stores/allStatus";
-const { statusList } = storeToRefs(allStatus());
-const onMoveCallback = () => {};
+const stores = allStatus()
+const { statusList, curIndex } = storeToRefs(allStatus());
+const onMoveCallback = (e) => { console.log(e) };
+const handleChangeCur = (num) => {
+  stores.setCurIndex(num)
+}
+const state: object = reactive({
+  siderList: []
+})
+watch(
+  statusList,
+  (val) => {
+    state.siderList = JSON.parse(JSON.stringify(val))
+  }, {
+  deep: true
+}
+);
 </script>
 <style scoped lang="less">
 .title {
@@ -38,6 +49,7 @@ const onMoveCallback = () => {};
   background-color: #2d343c;
   color: #fff;
 }
+
 .layer-item {
   margin-bottom: 1px;
   width: 100%;
@@ -58,6 +70,12 @@ const onMoveCallback = () => {};
   -ms-flex: none;
   flex: none;
   font-size: 12px;
+
+  &.is-active {
+    background: #409eff !important;
+    color: #373d41 !important;
+  }
+
   .icon {
     color: #409eff;
     margin-right: 10px;

@@ -7,7 +7,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-  height:100%;
+  height: 100%;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -20,6 +20,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -28,7 +29,7 @@ body {
   margin: 0;
   background: #171b22;
   overflow: hidden;
-  height:100%;
+  height: 100%;
 }
 
 h1 {
@@ -47,9 +48,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -60,18 +63,19 @@ button:focus-visible {
 }
 
 #app {
-  height:100%;
+  height: 100%;
 
   width: 100%;
 }
 
-.configs-box  .form-col {
+.configs-box .form-col {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   margin-bottom: 10px;
 }
-.configs-box  .form-col .form-label {
+
+.configs-box .form-col .form-label {
   width: 78px;
   text-align: right;
   margin-right: 12px;
@@ -80,18 +84,20 @@ button:focus-visible {
   line-height: 32px;
 }
 
-.configs-box  .form-col .value-col {
+.configs-box .form-col .value-col {
   margin-bottom: 4px;
   display: flex;
   align-items: center;
-  
+
 }
-.configs-box  .form-col .value-col .col-lable {
+
+.configs-box .form-col .value-col .col-lable {
   padding-right: 12px;
   font-size: 13px;
   color: #999;
 }
-.configs-box  .form-col .value-col .col-lable:after {
+
+.configs-box .form-col .value-col .col-lable:after {
   content: "：";
 }
 
@@ -100,9 +106,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }

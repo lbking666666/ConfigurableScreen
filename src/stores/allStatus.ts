@@ -6,17 +6,35 @@ import { defineStore } from 'pinia';
  * @methods setCurIndex 设置组件当前索引
  */
 export const allStatus = defineStore('allStore', {
-	state: ()=>({
-		statusList:[],//组件状态数组
-		curIndex:0//组件数组中索引
+	state: () => ({
+		statusList: [{
+			name: "layout",
+			style: {
+				width: 1920,
+				height: 1080,
+			},
+			scale: 100,
+			index: 0
+		}],//组件状态数组
+		curIndex: 0//组件数组中索引
 	}),
 	actions: {
+		//插入当前组件状态
 		setComponents(obj: Object) {
 			this.statusList.push(obj);
-			this.curIndex = this.statusList.length -1;
+			this.curIndex = this.statusList.length - 1;
 		},
-		setCurIndex(num:Number){
+		//设置当前组件索引
+		setCurIndex(num: Number) {
 			this.curIndex = num
+		},
+		//设置属性
+		setAttr(name, datas, index) {
+			this.statusList[index][name] = datas
+		},
+		//组件状态重建
+		rebuild(list: Array) {
+			this.statusList = [...list]
 		}
 	},
 });

@@ -8,28 +8,31 @@ import { defineStore } from "pinia";
  */
 export const historyStatus = defineStore("historyStore", {
   state: (): historyStatusState => ({
-    list: [],//历史记录数据数组
+    historyList: [],//历史记录数据数组
     curData: {},//当前组件数据
-    index: 0,//当前历史索引
+    hisIndex: -1,//当前历史索引
   }),
   actions: {
-    addHistory(obj:object){
-        this.list.push(obj);
-        this.index++;
+    //添加历史记录
+    addHistory(obj: object) {
+      this.hisIndex++;
+      this.historyList.push(obj);
     },
+    //回撤一步
     reBack() {
-      if (this.index == 0) {
+      if (this.hisIndex == 0) {
         return;
       }
-      this.index--;
-      this.curData = this.list[this.index];
+      this.hisIndex--;
+      return this.historyList[this.hisIndex];
     },
+    //前进一步
     goNext() {
-      if (this.index == this.list.length) {
+      if (this.hisIndex == this.historyList.length) {
         return;
       }
-      this.index++;
-      this.curData = this.list[this.index];
+      this.hisIndex++;
+      return this.historyList[this.hisIndex];
     },
   },
 });
