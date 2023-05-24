@@ -1,44 +1,80 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/home',
+    path: "/",
     meta: {
-      title: '可配置大屏',
-      keepAlive: false
+      title: "可配置大屏",
+      keepAlive: false,
     },
-    name: 'login',
-    component: () => import(/* webpackChunkName: "home" */ '../pages/home.vue')
-  }, {
-    path: '/login',
+    name: "layout",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../components/layout/index.vue"),
+    redirect: "/dashboard",
+    children: [
+      {
+        path: "dashboard",
+        meta: {
+          title: "工作台",
+          keepAlive: false,
+        },
+        component: () =>
+          import(/* webpackChunkName: "home" */ "../pages/home.vue"),
+      },
+      {
+        path: "app",
+        meta: {
+          title: "应用列表",
+          keepAlive: true,
+        },
+        component: () =>
+          import(/* webpackChunkName: "home" */ "../pages/app.vue"),
+      },
+      // {
+      //   path: "list",
+      //   meta: {
+      //     title: "列表",
+      //     keepAlive: false,
+      //   },
+      //   name: "List",
+      //   component: () =>
+      //     import(/* webpackChunkName: "home" */ "../pages/list.vue"),
+      // },
+    ],
+  },
+  {
+    path: "/login",
     meta: {
-      title: '登录',
-      keepAlive: false
+      title: "登录",
+      keepAlive: false,
     },
-    name: 'Login',
-    component: () => import(/* webpackChunkName: "home" */ '../pages/login.vue')
-  }, {
-    path: '/list',
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../pages/login.vue"),
+  },
+  {
+    path: "/main",
     meta: {
-      title: '列表',
-      keepAlive: false
+      title: "主操作界面",
+      keepAlive: false,
     },
-    name: 'List',
-    component: () => import(/* webpackChunkName: "home" */ '../pages/list.vue')
-  }, {
-    path: '/main',
+    name: "Main",
+    component: () => import(/* webpackChunkName: "home" */ "../pages/main.vue"),
+  },
+  {
+    path: "/view",
     meta: {
-      title: '主操作界面',
-      keepAlive: false
+      title: "预览界面",
+      keepAlive: false,
     },
-    name: 'Main',
-    component: () => import(/* webpackChunkName: "home" */ '../pages/main.vue')
-  }
-]
+    name: "View",
+    component: () => import(/* webpackChunkName: "home" */ "../pages/view.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

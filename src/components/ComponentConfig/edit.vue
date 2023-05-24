@@ -7,7 +7,6 @@
             </el-button>
         </el-form-item>
     </el-form>
-
     <el-dialog v-model="dialogDIYVisible" title="代码编辑" width="60%">
         <Codemirror v-model:value="option" :options="diyOptions" :border="true" ref="cmRef" height="300"
             :original-style="true" />
@@ -21,19 +20,22 @@
         </template>
     </el-dialog>
 </template>
-
 <script setup lang="ts">
 import { toRefs } from 'vue';
+//引入pinia
 import { storeToRefs } from "pinia";
+//引入所有组件状态
 import { allStatus } from "@/stores/allStatus";
-const { statusList, curIndex } = storeToRefs(allStatus());
+//所有组件状态列表
+const { statusList } = storeToRefs(allStatus());
+//引入代码编辑器插件
 import Codemirror from "codemirror-editor-vue3";
 import "codemirror-editor-vue3/node_modules/codemirror/mode/javascript/javascript.js";
 import "codemirror-editor-vue3/node_modules/codemirror/theme/blackboard.css";
 // @types/codemirror
-import type { Editor, EditorConfiguration } from "codemirror";
-//获取所有组件状态
-const stores = allStatus()
+import type { EditorConfiguration } from "codemirror";
+//获取所有组件仓库
+const stores = allStatus();
 //父组件传值
 const props = defineProps({
     index: {
@@ -41,12 +43,14 @@ const props = defineProps({
         default: 0,
     },
 });
-
 const { index } = toRefs(props);
+//定义自定义弹窗显隐
 const dialogDIYVisible = ref(false);
-const cmRef = ref()
-//js编辑器
-let option = ref('')
+//定义弹窗ref
+const cmRef = ref();
+//自定义编辑器默认值
+let option = ref('');
+//自定义编辑器参数
 const diyOptions: EditorConfiguration = {
     mode: "javascript",
     lineWrapping: true,
@@ -54,9 +58,10 @@ const diyOptions: EditorConfiguration = {
 };
 //点击显示配置处理弹窗
 const handleDIY = () => {
-    //先删除配置数据防止数据关联
-    option = statusList.value[index.value].option
-    //delete statusList.value[curIndex.value]['option']
+    //有值时赋值
+    if (statusList.value[index.value].option) {
+        option = statusList.value[index.value].option
+    }
     dialogDIYVisible.value = true
 }
 //保存配置
@@ -66,20 +71,3 @@ const handleSaveOption = () => {
     dialogDIYVisible.value = false
 }
 </script>
-<style scoped>
-.title {
-    padding: 0 20px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    line-height: 35px;
-    height: 35px;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-indent: 2px;
-    background-color: #2d343c;
-    color: #fff;
-    margin: 0 0 20px;
-}
-</style>

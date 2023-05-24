@@ -53,9 +53,12 @@ button:hover {
   border-color: #646cff;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.ant-tabs-tab .ant-tabs-tab-remove {
+  display: none;
+}
+.ant-tabs-tab:hover .ant-tabs-tab-remove {
+  display: block;
+  padding: 0;
 }
 
 .card {
@@ -88,7 +91,6 @@ button:focus-visible {
   margin-bottom: 4px;
   display: flex;
   align-items: center;
-
 }
 
 .configs-box .form-col .value-col .col-lable {
@@ -99,6 +101,107 @@ button:focus-visible {
 
 .configs-box .form-col .value-col .col-lable:after {
   content: "：";
+}
+
+.wrapper {
+  position: relative;
+}
+
+.layer .title,
+.config-wrapper .title {
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 35px;
+  height: 35px;
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-indent: 2px;
+  background-color: #2d343c;
+  color: #fff;
+}
+
+.charts {
+  width: 100%;
+  height: 100%;
+}
+
+.tabs .title {
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 35px;
+  height: 35px;
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-indent: 2px;
+  background-color: #2d343c;
+  color: #fff;
+}
+
+.tabs .el-tabs__header {
+  background: #27343e;
+  margin: 0 0 2px !important;
+}
+
+.tabs .el-tabs__active-bar {
+  top: 0;
+}
+
+.tabs .el-form-item {
+  padding: 0 12px;
+}
+
+.tabs .el-form-item--small .el-form-item__content {
+  padding-right: 10px;
+}
+
+.tabs i {
+  color: #bcc9d4;
+  font-size: 14px;
+}
+
+.tabs .el-tabs__item {
+  padding: 0;
+}
+
+.tabs .el-tabs__nav-wrap::after {
+  background: #27343e;
+}
+
+.tabs .el-form-item__label {
+  color: #859094;
+  padding-left: 20px;
+  font-size: 12px;
+}
+
+.tabs .el-input-number__increase,
+.tabs .el-input-number__decrease {
+  background: transparent;
+  border: 0 !important;
+}
+
+.tabs .el-form-item__label {
+  color: #fff;
+}
+
+.tabs .el-input__wrapper {
+  background-color: #0f1014 !important;
+  color: #859094 !important;
+  border: 1px solid #282e3a !important;
+  box-shadow: none;
+}
+
+.tabs .el-dialog__body {
+  padding: 10px;
+}
+
+.tabs .CodeMirror-wrap pre.CodeMirror-line {
+  text-indent: 4em !important;
 }
 
 @media (prefers-color-scheme: light) {

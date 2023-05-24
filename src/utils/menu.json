@@ -241,8 +241,15 @@
                             "zh-name": "选项卡",
                             "name": "Tab",
                             "image": "./other/tab_01.png",
-                            "components": "Tab/index",
-                            "configs": "Tab/config"
+                            "components": "other/Tab/index",
+                            "configs": "other/Tab/config"
+                        },
+                        {
+                            "zh-name": "按钮",
+                            "name": "Button",
+                            "image": "./other/tab_01.png",
+                            "components": "other/Button/index",
+                            "configs": "other/Button/config"
                         }
                     ]
                 }

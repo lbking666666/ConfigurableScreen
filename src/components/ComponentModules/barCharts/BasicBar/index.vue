@@ -3,12 +3,13 @@
 </template>
 
 <script setup lang="ts">
-import * as echarts from "echarts";
-import { reactive, onMounted, ref, markRaw, watch, toRefs } from "vue";
-//引入pinia状态
-import { storeToRefs } from "pinia";
+//引入echarts插件
+import { onMounted, ref, toRefs, watch } from "vue";
+import useEchartsInit from "@/Composables/useEchartsInit";
+//引入所有组件状态
 import { allStatus } from "@/stores/allStatus";
-const { statusList, curIndex } = storeToRefs(allStatus());
+//获取所有组件仓储
+const stores = allStatus();
 //父组件传值
 const props = defineProps({
   index: {
@@ -16,20 +17,10 @@ const props = defineProps({
     default: 0,
   },
 });
-
 const { index } = toRefs(props);
-//获取所有组件状态
-const stores = allStatus()
 // 定义变量内容
 const barCharts: object = ref();
-//声明reactive响应式对象
-const state: object = reactive({
-  chartsBox: null,
-  xData: [],
-  yData: [],
-
-});
-//编辑器配置data
+//编辑器配置数据data
 let statusData = ref(`[
     {
         "name": "苹果",
@@ -57,7 +48,7 @@ let statusData = ref(`[
         "type": "手机品牌"
     }
 ]`);
-//编辑器配置option
+//编辑器配置自定义option
 const statusOption = ref(`
 option = {
   xAxis: {
@@ -66,91 +57,58 @@ option = {
   yAxis: {
     type: 'value'
   },
-  series: [
-    {
-      type: 'bar'
-    }
-  ]
 }
-`)
-
+`);
+//默认设置
 const setStatus = () => {
-  stores.setAttr('data', statusData, index.value);
-  stores.setAttr('option', statusOption, index.value);
-}
+  stores.setAttr("data", statusData, index.value);
+  stores.setAttr("option", statusOption, index.value);
+};
+//处理自定义配置
 const JoinOptionData = (status) => {
-  let datas = JSON.parse(status.data);
-  state.xData = [];
-  state.yData = [];
-  datas.forEach(item => {
-    state.xData.push(item.name)
-    state.yData.push(item.value)
-  })
-  const str = status.option.replace('option =', '')
-  const configs = eval("(" + str + ")");
-  configs.xAxis.data = state.xData
-  configs.series[0].data = state.yData
-  return configs
-}
-//定义柱状图
-const initBarCharts = () => {
-  setStatus();
-  //标记一个对象,使其永远不会再成为响应式对象
-  state.chartsBox = markRaw(echarts.init(barCharts.value));
-  const option = JoinOptionData(statusList.value[index.value])
-  state.chartsBox.setOption(option);
-  window.addEventListener('resize', () => {
-    state.chartsBox.resize();
+  let datas = {};
+  //判断是否返回数据处理
+  if (typeof status.data == "string") {
+    datas = JSON.parse(status.data);
+  } else {
+    datas = status.data;
+  }
+  //初始化x和y轴的值
+  let xData = [];
+  let yData = [];
+  //处理数据
+  datas.forEach((item) => {
+    xData.push(item.name);
+    yData.push(item.value);
   });
+  //处理自定义配置格式
+  const str = status.option.replace("option =", "");
+  const configs = eval("(" + str + ")");
+  configs.xAxis.data = xData;
+  configs.series = [
+    {
+      type: "bar",
+      data: yData,
+    },
+  ];
+  //返回配置
+  return configs;
 };
 
-// 页面加载时
+// 挂载后
 onMounted(() => {
-  initBarCharts();
+  setStatus();
+  useEchartsInit(barCharts.value, index.value, JoinOptionData);
 });
-
-watch(() => JSON.parse(JSON.stringify(statusList)), (val) => {
-  let list = val._object.statusList
-  if (list[index.value].option && list[index.value].data) {
-    const option = JoinOptionData(list[index.value])
-    state.chartsBox.setOption(option);
-    state.chartsBox.resize();
+watch(
+  index,
+  (val) => {
+    setStatus();
+    console.log(2222,val)
+    useEchartsInit(barCharts.value, val, JoinOptionData);
+  },
+  {
+    deep: true,
   }
-
-}, {
-  deep: true
-})
-// watch(
-//   () => JSON.parse(JSON.stringify(props.data)), (val) => {
-//     state.chartsBox.resize();
-//     if (val.data) {
-//       const datas = JSON.parse(val.data);
-//       state.xData = [];
-//       state.yData = [];
-//       datas.forEach(item => {
-//         state.xData.push(item.name)
-//         state.yData.push(item.value)
-//       })
-//       option.xAxis.data = state.xData
-//       option.series[0].data = state.yData
-//       state.chartsBox.setOption(option);
-//       state.chartsBox.resize();
-//     }
-//     if (val.option) {
-//       const str = val.option.replace('option =', '')
-//       const configs = eval("(" + str + ")");
-//       configs.xAxis['data'] = state.xData
-//       configs.series[0]['data'] = state.yData
-//       state.chartsBox.setOption(configs);
-//       state.chartsBox.resize();
-//     }
-//   }, {
-//   deep: true,
-// })
+);
 </script>
-<style scoped lang="less">
-.charts {
-  width: 100%;
-  height: 100%;
-}
-</style>

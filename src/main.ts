@@ -8,6 +8,8 @@ import 'element-plus/dist/index.css'
 import '@/assets/nav/iconfont.css';
 import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 
 
-createApp(App).use(pinia).use(ElementPlus).use(Avue).use(routes).mount('#app')
+createApp(App).use(pinia).use(ElementPlus).use(Antd).use(Avue).use(routes).mount('#app')

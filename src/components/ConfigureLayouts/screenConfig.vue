@@ -2,12 +2,13 @@
     <el-tabs v-model="tabVal" :stretch="true" class="tabs">
         <el-tab-pane label="设置" name="first">
             <template #label>
-                <span class="custom-tabs-label">
-                    <el-icon>
-
-                        <Setting />
-                    </el-icon>
-                </span>
+                <el-tooltip class="box-item" effect="dark" content="容器设置" placement="top">
+                    <span class="custom-tabs-label">
+                        <el-icon>
+                            <Setting />
+                        </el-icon>
+                    </span>
+                </el-tooltip>
             </template>
             <el-form size="small" label-width="120px" label-position="left">
                 <p class="title"></p>
@@ -23,97 +24,35 @@
                 <el-form-item label="缩放">
                     <el-slider v-model="statusList[0].scale" />
                 </el-form-item>
-
             </el-form>
+        </el-tab-pane>
+        <el-tab-pane label="全局样式自定义" name="edit">
+            <template #label>
+                <el-tooltip class="box-item" effect="dark" content="全局样式自定义" placement="top">
+                    <span class="custom-tabs-label">
+                        <el-icon>
+                            <Edit />
+                        </el-icon>
+                    </span>
+                </el-tooltip>
+            </template>
+            <EditCss />
         </el-tab-pane>
     </el-tabs>
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Setting } from "@element-plus/icons-vue";
-//引入pinia状态
-
+//引入elementUI图标
+import { Setting, Edit } from "@element-plus/icons-vue";
+//引入全局css处理编辑器
+import EditCss from '@c/ComponentConfig/editCss.vue';
+//引入pinia
 import { storeToRefs } from "pinia";
+//引入所有组件状态
 import { allStatus } from "@/stores/allStatus";
+//所有组件状态列表
 const { statusList } = storeToRefs(allStatus());
+//定义当前tab默认值
 const tabVal = ref('first')
 </script>
-
-<style lang="less">
-.tabs {
-    .el-tabs__header {
-        background: #27343e;
-        margin: 0 0 2px !important;
-    }
-
-    .el-tabs__active-bar {
-        top: 0;
-    }
-
-    .el-form-item--small .el-form-item__content {
-        padding-right: 10px;
-    }
-
-    i {
-        color: #bcc9d4;
-        font-size: 14px;
-    }
-
-    .el-tabs__item {
-        padding: 0;
-    }
-
-    .el-tabs__nav-wrap::after {
-        background: #27343e;
-    }
-
-    .el-form-item__label {
-        color: #859094;
-        padding-left: 20px;
-        font-size: 12px;
-    }
-
-    .el-input-number__increase,
-    .el-input-number__decrease {
-        background: transparent;
-        border: 0 !important;
-    }
-
-    .el-form-item__label {
-        color: #fff;
-    }
-
-    .el-input__wrapper {
-        background-color: #0f1014 !important;
-        color: #859094 !important;
-        border: 1px solid #282e3a !important;
-        box-shadow: none;
-    }
-
-    .el-dialog__body {
-        padding: 10px;
-    }
-
-    .CodeMirror-wrap pre.CodeMirror-line {
-        text-indent: 4em !important;
-    }
-}
-</style>
-<style scoped lang="less">
-.title {
-    padding: 0 20px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    line-height: 35px;
-    height: 35px;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-indent: 2px;
-    background-color: #2d343c;
-    color: #fff;
-    margin-top: 0;
-}
-</style>
   

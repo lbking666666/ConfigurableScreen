@@ -11,7 +11,9 @@
         <CanvasLayout />
       </div>
       <div class="config-wrapper">
-        <Config />
+        <el-scrollbar style="height: 100%">
+          <Config />
+        </el-scrollbar>
       </div>
     </div>
   </div>
@@ -36,8 +38,6 @@ const CanvasLayout: object = defineAsyncComponent(
 const Config: object = defineAsyncComponent(
   () => import("@c/ConfigureLayouts/config.vue")
 );
-
-
 </script>
 <style scoped lang="less">
 .big-screen-wrapper {

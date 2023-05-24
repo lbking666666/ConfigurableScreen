@@ -12,19 +12,28 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from "vue";
+//引入拖拽插件
 import Draggable from "vuedraggable";
-//引入pinia状态
+//引入pinia
 import { storeToRefs } from "pinia";
+//引入所有组件状态
 import { allStatus } from "@/stores/allStatus";
-const stores = allStatus()
+//所有组件状态列表
 const { statusList, curIndex } = storeToRefs(allStatus());
-const onMoveCallback = (e) => { console.log(e) };
-const handleChangeCur = (num) => {
-  stores.setCurIndex(num)
-}
+//获取所有组件仓库
+const stores = allStatus();
+//定义当前state对象
 const state: object = reactive({
   siderList: []
 })
+//拖拽事件
+const onMoveCallback = (e) => { console.log(e) };
+//图层点击事件处理
+const handleChangeCur = (num) => {
+  //更改当前组件索引
+  stores.setCurIndex(num)
+}
+//监听所有组件状态赋值给图层数组
 watch(
   statusList,
   (val) => {
@@ -35,20 +44,6 @@ watch(
 );
 </script>
 <style scoped lang="less">
-.title {
-  padding: 0 20px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  line-height: 35px;
-  height: 35px;
-  text-align: center;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-indent: 2px;
-  background-color: #2d343c;
-  color: #fff;
-}
 
 .layer-item {
   margin-bottom: 1px;

@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar style="height: 100%">
+  <el-scrollbar style="height: 100%" @scroll="handleScroll">
     <div style="position: relative;transform-origin: 0 0;"
       :style="{ width: statusList[0].style.width + 'px', height: statusList[0].style.height + 'px', transform: `scale(${statusList[0].scale / 100})` }"
       ref="rule">
@@ -15,24 +15,27 @@
   </el-scrollbar>
 </template>
 <script lang="ts" setup>
-import { computed, defineAsyncComponent } from "vue";
-import { allStatus } from "@/stores/allStatus";
+import { defineAsyncComponent } from "vue";
+//引入pinia
 import { storeToRefs } from "pinia";
+//引入所有组件状态
+import { allStatus } from "@/stores/allStatus";
+//所有组件状态列表
 const { statusList } = storeToRefs(allStatus());
-const stores = allStatus()
-//引入rule组件
+//获取所有组件仓库
+const stores = allStatus();
+//引入rule插件
 import SketchRule from 'vue3-sketch-ruler'
 import 'vue3-sketch-ruler/lib/style.css'
+//引入拖拽控制组件
 const Screen: object = defineAsyncComponent(
-  () => import("../ComponentModules/dragComponents.vue")
+  () => import("@c/ConfigureLayouts/dragComponents.vue")
 );
-const ruleWidth = computed(() => {
-  return document.body.clientWidth - 480
-})
-const ruleHeight = computed(() => {
-  return document.body.clientHeight - 54
-})
-
+//滚动事件
+const handleScroll = (e) => {
+  //console.log(e)
+}
+//清除当前组件索引
 const handleClearCur = () => {
   stores.setCurIndex(0)
 }

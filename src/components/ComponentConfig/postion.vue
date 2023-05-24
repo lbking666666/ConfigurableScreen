@@ -15,11 +15,13 @@
         </el-form-item>
     </el-form>
 </template>
-
 <script setup lang="ts">
 import { toRefs } from 'vue';
+//引入pinia
 import { storeToRefs } from "pinia";
+//引入所有组件状态
 import { allStatus } from "@/stores/allStatus";
+//所有组件状态列表
 const { statusList } = storeToRefs(allStatus());
 //父组件传值
 const props = defineProps({
@@ -28,23 +30,5 @@ const props = defineProps({
         default: 0,
     },
 });
-
 const { index } = toRefs(props);
 </script>
-<style scoped>
-.title {
-    padding: 0 20px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    line-height: 35px;
-    height: 35px;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-indent: 2px;
-    background-color: #2d343c;
-    color: #fff;
-    margin: 0 0 20px;
-}
-</style>

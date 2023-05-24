@@ -11,30 +11,17 @@
 </template>
 <script lang="ts" setup>
 import { defineAsyncComponent } from "vue";
-import ScreenConfig from "./screenConfig.vue";
-const Screen: object = defineAsyncComponent(
-  () => import("../ComponentModules/configComponents.vue")
-);
-//引入pinia状态
+//引入pinia
 import { storeToRefs } from "pinia";
+//引入所有组件状态
 import { allStatus } from "@/stores/allStatus";
+//所有组件状态列表
 const { statusList, curIndex } = storeToRefs(allStatus());
+//引入屏幕组件配置组件
+import ScreenConfig from "./screenConfig.vue";
+//引入其他组件配置组件
+const ConfigComponents: object = defineAsyncComponent(
+  () => import("@c/ConfigureLayouts/configComponents.vue")
+);
 </script>
-<style scoped lang="less">
-.title {
-  padding: 0 20px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  line-height: 35px;
-  height: 35px;
-  text-align: center;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-indent: 2px;
-  background-color: #2d343c;
-  color: #fff;
-  margin-bottom: 0;
-}
-</style>
   

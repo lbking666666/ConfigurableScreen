@@ -54,16 +54,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs } from 'vue';
-import { storeToRefs } from "pinia";
-import { allStatus } from "@/stores/allStatus";
+//引入elementUI图标
 import { Setting, Coin, Link, Edit, Aim } from "@element-plus/icons-vue";
-
+//引入设置组件
 import SettingConfig from '@c/ComponentConfig/setting.vue';
+//引入数据组件
 import DatasConfig from '@c/ComponentConfig/datas.vue';
+//引入交互组件
 import LinkConfig from '@c/ComponentConfig/link.vue';
+//引入自定义组件
 import EditConfig from '@c/ComponentConfig/edit.vue';
+//引入位置组件
 import PostionConfig from '@c/ComponentConfig/postion.vue';
+
+import { ref, toRefs } from 'vue';
 //父组件传值
 const props = defineProps({
     index: {
@@ -71,9 +75,7 @@ const props = defineProps({
         default: 0,
     },
 });
-
 const { index } = toRefs(props);
-const { statusList, curIndex } = storeToRefs(allStatus());
 //当前tabs选中项
 const activeName = ref('setting')
 </script>

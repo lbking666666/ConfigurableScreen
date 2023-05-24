@@ -26,15 +26,29 @@ export const allStatus = defineStore('allStore', {
 		},
 		//设置当前组件索引
 		setCurIndex(num: Number) {
-			this.curIndex = num
+			this.curIndex = num;
 		},
 		//设置属性
 		setAttr(name, datas, index) {
-			this.statusList[index][name] = datas
+			this.statusList[index][name] = datas;
+		},
+		//删除组件
+		delComponents(index){
+			this.curIndex = 0
+			this.statusList.splice(index,1)
+		},
+		//设置锁定
+		setLock(index){
+			if(this.statusList[index].lock){
+				this.statusList[index].lock = false
+			}else{
+				this.statusList[index].lock = true
+			}
+			
 		},
 		//组件状态重建
 		rebuild(list: Array) {
-			this.statusList = [...list]
+			this.statusList = [...list];
 		}
 	},
 });

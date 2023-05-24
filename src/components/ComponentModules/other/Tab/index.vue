@@ -1,53 +1,53 @@
 <template>
-  111223
+  <el-radio-group v-model="statusList[index].value" :size="statusList[index].size" @change="handleChange">
+    <template v-for="item in JSON.parse(statusList[index].data)">
+      <el-radio-button :label="item.value">{{ item.label }}</el-radio-button>
+    </template>
+  </el-radio-group>
 </template>
 
-<script setup lang="ts" name="barCharts">
-import * as echarts from "echarts";
-import {
-  reactive,
-  onMounted,
-  ref,
-  markRaw,
-} from "vue";
-
-// 定义变量内容
-const barCharts:object = ref();
-//声明reactive响应式对象
-const state:object = reactive({
-  chartsBox: null,
+<script setup lang="ts">
+import { toRefs, watch } from "vue";
+//引入pinia
+import { storeToRefs } from "pinia";
+//引入所有组件状态
+import { allStatus } from "@/stores/allStatus";
+//所有组件状态列表
+const { statusList } = storeToRefs(allStatus());
+const stores = allStatus()
+//父组件传值
+const props = defineProps({
+  index: {
+    type: Number,
+    default: 0,
+  },
 });
-//定义柱状图
-const initBarCharts = () => {
-  //标记一个对象,使其永远不会再成为响应式对象
-  state.chartsBox = markRaw(echarts.init(barCharts.value));
-  const option = {
-    xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+const { index } = toRefs(props);
+//定义编辑器配置data
+let statusData = ref(`[
+    {
+        "label": "日",
+        "value": "1"
     },
-    yAxis: {
-      type: "value",
-    },
-    series: [
-      {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: "line",
-      },
-    ],
-  };
-  state.chartsBox.setOption(option);
-};
-
-// 页面加载时
-onMounted(() => {
-	console.log(barCharts)
-  initBarCharts();
-});
-</script>
-<style scoped lang="less">
-.charts{
-	width:100%;
-	height:100%;
+    {
+        "label": "周",
+        "value": "7"
+    },{
+        "label": "月",
+        "value": "30"
+    }
+]`);
+//设置默认数据
+const setStatus = () => {
+  if (!statusList.value[index.value].data) {
+    stores.setAttr('data', statusData, index.value);
+  }
+  stores.setAttr('value', JSON.parse(statusList.value[index.value].data)[0].value, index.value);
 }
-</style>
+//设置默认数据
+setStatus();
+//更改选项处理
+const handleChange = (val) => {
+  stores.setAttr('value', val, index.value);
+}
+</script>
