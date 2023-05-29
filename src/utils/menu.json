@@ -1,279 +1,414 @@
 {
-    "list": [
+  "list": [
+    {
+      "zh-name": "图表",
+      "icon": "zhuzhuangtutubiao",
+      "children": [
         {
-            "zh-name": "图表",
-            "icon": "zhuzhuangtutubiao",
-            "children": [
-                {
-                    "zh-name": "柱形图",
-                    "icon": "zhuzhuangtutubiao",
-                    "children": [
-                        {
-                            "zh-name": "柱形图",
-                            "name": "BasicBar",
-                            "image": "./barcharts/bar_01.png",
-                            "components": "barCharts/BasicBar/index",
-                            "configs": "barCharts/BasicBar/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-simple"
-                        },
-                        {
-                            "zh-name": "横向柱形图",
-                            "name": "HorizontalBar",
-                            "image": "./barcharts/bar_02.png",
-                            "components": "barCharts/HorizontalBar/index",
-                            "configs": "barCharts/HorizontalBar/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category"
-                        },
-                        {
-                            "zh-name": "堆叠柱形图",
-                            "image": "./barcharts/bar_03.png",
-                            "name": "StackedBar",
-                            "components": "barCharts/StackedBar/index",
-                            "configs": "barCharts/StackedBar/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-stack"
-                        }
-                    ]
-                },
-                {
-                    "zh-name": "折线图",
-                    "icon": "tubiao-zhexiantu",
-                    "children": [
-                        {
-                            "zh-name": "普通折线图",
-                            "name": "BasicLine",
-                            "image": "./linecharts/line_01.png",
-                            "components": "linecharts/BasicLine/index",
-                            "configs": "linecharts/BasicLine/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=line-simple"
-                        },
-                        {
-                            "zh-name": "面积图",
-                            "name": "AreaLine",
-                            "image": "./linecharts/line_02.png",
-                            "components": "linecharts/AreaLine/index",
-                            "configs": "linecharts/AreaLine/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=area-basic"
-                        },
-                        {
-                            "zh-name": "纵向折线图",
-                            "name": "CategoryLine",
-                            "image": "./linecharts/line_03.png",
-                            "components": "linecharts/CategoryLine/index",
-                            "configs": "linecharts/CategoryLine/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=line-y-category"
-                        }
-                    ]
-                },
-                {
-                    "zh-name": "饼图",
-                    "icon": "bingtu",
-                    "children": [
-                        {
-                            "zh-name": "普通饼图",
-                            "name": "BasicPie",
-                            "image": "./piecharts/pie_01.png",
-                            "components": "piecharts/BasicPie/index",
-                            "configs": "piecharts/BasicPie/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-simple"
-                        },
-                        {
-                            "zh-name": "南丁格尔玫瑰",
-                            "name": "RosePie",
-                            "image": "./piecharts/pie_02.png",
-                            "components": "piecharts/RosePie/index",
-                            "configs": "piecharts/RosePie/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-roseType-simple"
-                        },
-                        {
-                            "zh-name": "环形饼图",
-                            "name": "DoughnutPie",
-                            "image": "./piecharts/pie_03.png",
-                            "components": "piecharts/DoughnutPie/index",
-                            "configs": "piecharts/DoughnutPie/config",
-                            "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-doughnut"
-                        }
-                    ]
-                }
-            ]
+          "zh-name": "柱形图",
+          "icon": "zhuzhuangtutubiao",
+          "children": [
+            {
+              "zh-name": "柱形图",
+              "name": "BasicBar",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./barcharts/bar_01.png",
+              "components": "barCharts/BasicBar/index",
+              "configs": "barCharts/BasicBar/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-simple"
+            },
+            {
+              "zh-name": "横向柱形图",
+              "name": "HorizontalBar",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./barcharts/bar_02.png",
+              "components": "barCharts/HorizontalBar/index",
+              "configs": "barCharts/HorizontalBar/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category"
+            },
+            {
+              "zh-name": "堆叠柱形图",
+              "image": "./barcharts/bar_03.png",
+              "name": "StackedBar",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "components": "barCharts/StackedBar/index",
+              "configs": "barCharts/StackedBar/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=bar-stack"
+            }
+          ]
         },
         {
-            "zh-name": "装饰",
-            "icon": "zhuangshizhuangxiu",
-            "children": [
-                {
-                    "zh-name": "边框",
-                    "icon": "biankuang",
-                    "children": [
-                        {
-                            "zh-name": "边框1",
-                            "name": "Border1",
-                            "image": "./border/border_01.gif",
-                            "components": "borders/Border1/index",
-                            "configs": "borders/Border1/config",
-                            "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-1"
-                        },
-                        {
-                            "zh-name": "边框2",
-                            "name": "Border2",
-                            "image": "./border/border_02.png",
-                            "components": "borders/Border2/index",
-                            "configs": "borders/Border2/config",
-                            "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-2"
-                        },
-                        {
-                            "zh-name": "边框3",
-                            "name": "Border3",
-                            "image": "./border/border_03.png",
-                            "components": "borders/Border3/index",
-                            "configs": "borders/Border3/config",
-                            "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-3"
-                        }
-                    ]
-                },
-                {
-                    "zh-name": "图片",
-                    "icon": "tupian",
-                    "children": [
-                        {
-                            "zh-name": "图片",
-                            "name": "image",
-                            "image": "./pic/img_01.png",
-                            "components": "image/index",
-                            "configs": "image/config"
-                        }
-                    ]
-                }
-            ]
+          "zh-name": "折线图",
+          "icon": "tubiao-zhexiantu",
+          "children": [
+            {
+              "zh-name": "普通折线图",
+              "name": "BasicLine",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./linecharts/line_01.png",
+              "components": "linecharts/BasicLine/index",
+              "configs": "linecharts/BasicLine/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=line-simple"
+            },
+            {
+              "zh-name": "面积图",
+              "name": "AreaLine",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./linecharts/line_02.png",
+              "components": "linecharts/AreaLine/index",
+              "configs": "linecharts/AreaLine/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=area-basic"
+            },
+            {
+              "zh-name": "纵向折线图",
+              "name": "CategoryLine",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./linecharts/line_03.png",
+              "components": "linecharts/CategoryLine/index",
+              "configs": "linecharts/CategoryLine/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=line-y-category"
+            }
+          ]
         },
         {
-            "zh-name": "文本类",
-            "icon": "hengpai",
-            "children": [
-                {
-                    "zh-name": "文本框",
-                    "icon": "hengpai",
-                    "children": [
-                        {
-                            "zh-name": "普通文字",
-                            "name": "Text",
-                            "image": "./text/text_01.png",
-                            "components": "texts/Text/index",
-                            "configs": "texts/Text/config"
-                        },
-                        {
-                            "zh-name": "滚动文字",
-                            "name": "ScrollText",
-                            "image": "./text/text_03.gif",
-                            "components": "tables/ScrollText/index",
-                            "configs": "tables/ScrollText/config"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "zh-name": "表格",
-            "icon": "biaoge",
-            "children": [
-                {
-                    "zh-name": "表格",
-                    "icon": "biaoge",
-                    "children": [
-                        {
-                            "zh-name": "普通表格",
-                            "name": "Table",
-                            "image": "./table/table_01.png",
-                            "components": "tables/Table/index",
-                            "configs": "tables/Table/config"
-                        },
-                        {
-                            "zh-name": "滚动表格",
-                            "name": "ScrollTable",
-                            "image": "./table/table_03.gif",
-                            "components": "tables/ScrollTable/index",
-                            "configs": "tables/ScrollTable/config"
-                        }
-                    ]
-                },
-                {
-                    "zh-name": "排名表",
-                    "icon": "tupian",
-                    "children": [
-                        {
-                            "zh-name": "排名表",
-                            "name": "Ranks",
-                            "image": "./table/table_02.gif",
-                            "components": "tabls/Ranks/index",
-                            "configs": "tabls/Ranks/config"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "zh-name": "地图",
-            "icon": "iconmaplocation",
-            "children": [
-                {
-                    "zh-name": "二维地图",
-                    "icon": "iconmaplocation",
-                    "children": [
-                        {
-                            "zh-name": "地图",
-                            "name": "Map",
-                            "image": "./map/map.png",
-                            "components": "maps/Map/index",
-                            "configs": "maps/Map/config"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "zh-name": "其他",
-            "icon": "flop",
-            "children": [
-                {
-                    "zh-name": "选项卡",
-                    "icon": "xuanxiangka",
-                    "children": [
-                        {
-                            "zh-name": "选项卡",
-                            "name": "Tab",
-                            "image": "./other/tab_01.png",
-                            "components": "other/Tab/index",
-                            "configs": "other/Tab/config"
-                        },
-                        {
-                            "zh-name": "按钮",
-                            "name": "Button",
-                            "image": "./other/tab_01.png",
-                            "components": "other/Button/index",
-                            "configs": "other/Button/config"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "zh-name": "保存",
-            "value": "save",
-            "icon": "baocun"
-        },
-        {
-            "zh-name": "预览",
-            "value": "look",
-            "icon": "view"
-        },
-        {
-            "zh-name": "撤销",
-            "value": "revoke",
-            "icon": "refresh-left"
-        },
-        {
-            "zh-name": "前进",
-            "value": "next",
-            "icon": "refresh-right"
+          "zh-name": "饼图",
+          "icon": "bingtu",
+          "children": [
+            {
+              "zh-name": "普通饼图",
+              "name": "BasicPie",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./piecharts/pie_01.png",
+              "components": "piecharts/BasicPie/index",
+              "configs": "piecharts/BasicPie/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-simple"
+            },
+            {
+              "zh-name": "南丁格尔玫瑰",
+              "name": "RosePie",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./piecharts/pie_02.png",
+              "components": "piecharts/RosePie/index",
+              "configs": "piecharts/RosePie/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-roseType-simple"
+            },
+            {
+              "zh-name": "环形饼图",
+              "name": "DoughnutPie",
+              "type": "charts",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./piecharts/pie_03.png",
+              "components": "piecharts/DoughnutPie/index",
+              "configs": "piecharts/DoughnutPie/config",
+              "url": "https://echarts.apache.org/examples/zh/editor.html?c=pie-doughnut"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "zh-name": "装饰",
+      "icon": "zhuangshizhuangxiu",
+      "children": [
+        {
+          "zh-name": "边框",
+          "icon": "biankuang",
+          "children": [
+            {
+              "zh-name": "边框1",
+              "name": "Border1",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./border/border_01.gif",
+              "components": "borders/Border1/index",
+              "configs": "borders/Border1/config",
+              "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-1"
+            },
+            {
+              "zh-name": "边框2",
+              "name": "Border2",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./border/border_02.png",
+              "components": "borders/Border2/index",
+              "configs": "borders/Border2/config",
+              "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-2"
+            },
+            {
+              "zh-name": "边框3",
+              "name": "Border3",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./border/border_03.png",
+              "components": "borders/Border3/index",
+              "configs": "borders/Border3/config",
+              "url": "http://datav.jiaminghi.com/guide/borderBox.html#dv-border-box-3"
+            }
+          ]
+        },
+        {
+          "zh-name": "图片",
+          "icon": "tupian",
+          "children": [
+            {
+              "zh-name": "图片",
+              "name": "image",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./pic/img_01.png",
+              "components": "image/index",
+              "configs": "image/config"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "zh-name": "文本类",
+      "icon": "hengpai",
+      "children": [
+        {
+          "zh-name": "文本框",
+          "icon": "hengpai",
+          "children": [
+            {
+              "zh-name": "普通文字",
+              "name": "Text",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./text/text_01.png",
+              "components": "texts/Text/index",
+              "configs": "texts/Text/config"
+            },
+            {
+              "zh-name": "滚动文字",
+              "name": "ScrollText",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./text/text_03.gif",
+              "components": "tables/ScrollText/index",
+              "configs": "tables/ScrollText/config"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "zh-name": "表格",
+      "icon": "biaoge",
+      "children": [
+        {
+          "zh-name": "表格",
+          "icon": "biaoge",
+          "children": [
+            {
+              "zh-name": "普通表格",
+              "name": "Table",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./table/table_01.png",
+              "components": "tables/Table/index",
+              "configs": "tables/Table/config"
+            },
+            {
+              "zh-name": "滚动表格",
+              "name": "ScrollTable",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./table/table_03.gif",
+              "components": "tables/ScrollTable/index",
+              "configs": "tables/ScrollTable/config"
+            }
+          ]
+        },
+        {
+          "zh-name": "排名表",
+          "icon": "tupian",
+          "children": [
+            {
+              "zh-name": "排名表",
+              "name": "Ranks",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./table/table_02.gif",
+              "components": "tabls/Ranks/index",
+              "configs": "tabls/Ranks/config"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "zh-name": "地图",
+      "icon": "iconmaplocation",
+      "children": [
+        {
+          "zh-name": "二维地图",
+          "icon": "iconmaplocation",
+          "children": [
+            {
+              "zh-name": "地图",
+              "name": "Map",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./map/map.png",
+              "components": "maps/Map/index",
+              "configs": "maps/Map/config"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "zh-name": "其他",
+      "icon": "flop",
+      "children": [
+        {
+          "zh-name": "选项卡",
+          "icon": "xuanxiangka",
+          "children": [
+            {
+              "zh-name": "选项卡",
+              "name": "Tab",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 136,
+                "height": 32
+              },
+              "image": "./other/tab_01.png",
+              "components": "other/Tab/index",
+              "configs": "other/Tab/config"
+            },
+            {
+              "zh-name": "按钮",
+              "name": "Button",
+              "style": {
+                "top": 0,
+                "left": 0,
+                "width": 300,
+                "height": 200
+              },
+              "image": "./other/tab_01.png",
+              "components": "other/Button/index",
+              "configs": "other/Button/config"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "zh-name": "保存",
+      "value": "save",
+      "icon": "baocun"
+    },
+    {
+      "zh-name": "预览",
+      "value": "look",
+      "icon": "view"
+    },
+    {
+      "zh-name": "撤销",
+      "value": "revoke",
+      "icon": "refresh-left"
+    },
+    {
+      "zh-name": "前进",
+      "value": "next",
+      "icon": "refresh-right"
+    }
+  ]
 }

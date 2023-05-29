@@ -1,20 +1,17 @@
 //处理接收到的style
-const useHandleStyle = (item) => {
-    if (item.style) {
-        item.style['z-index'] = item.index
-        let data = item.style
-        let datas = {};
-        for (let k in data) {
-            if (typeof data[k] == "number" && k != 'z-index') {//px处理
-                datas[k] = data[k] + "px";
-            } else if (k == "backgroundImage") {//背景图片处理
-                datas[k] = `url(${data[k]})`;
-            } else {
-                datas[k] = data[k];
-            }
-        }
-        return datas;
-
+const useHandleStyle = (args: string[]) => {
+  let datas = {};
+  for (let i in args) {
+    if (typeof args[i] == "number" && i != "z-index") {
+      //px处理
+      datas[i] = args[i] + "px";
+    } else if (i == "backgroundImage") {
+      //背景图片处理
+      datas[i] = `url(${data[i]})`;
+    } else {
+      datas[i] = args[i];
     }
+  }
+  return datas;
 };
 export default useHandleStyle;

@@ -11,6 +11,8 @@
 <script setup lang="ts">
 import { toRefs } from "vue";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
+//引入本地存储处理方法
+import useSetAppStatus from "@/Composables/useSetAppStatus";
 //定义emit
 const emit = defineEmits(["handleChange"]);
 //父组件传值
@@ -25,6 +27,8 @@ const { collapsed } = toRefs(props);
 const toggleNav = () => {
   emit("handleChange");
 };
+
+useSetAppStatus()
 </script>
 <style lang="less" scoped>
 .header {

@@ -104,7 +104,6 @@ watch(
   index,
   (val) => {
     setStatus();
-    console.log(2222,val)
     useEchartsInit(barCharts.value, val, JoinOptionData);
   },
   {

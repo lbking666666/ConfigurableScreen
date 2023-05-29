@@ -2,10 +2,14 @@
   <div class="title">图层</div>
   <Draggable item-key="uid" :list="state.siderList" @change="onMoveCallback">
     <template v-slot:item="{ element }">
-      <div v-if="element.name != 'layout'" class="layer-item" :class="{ 'is-active': curIndex == element.index }"
-        @click.stop="handleChangeCur(element.index)">
+      <div
+        v-if="element.name != 'layout'"
+        class="layer-item"
+        :class="{ 'is-active': curIndex == element.index }"
+        @click.stop="handleChangeCur(element.index)"
+      >
         <span class="icon iconfont" :class="'icon-' + element.icon"></span>
-        <span>{{ element['zh-name'] }}</span>
+        <span>{{ element["zh-name"] }}</span>
       </div>
     </template>
   </Draggable>
@@ -24,27 +28,29 @@ const { statusList, curIndex } = storeToRefs(allStatus());
 const stores = allStatus();
 //定义当前state对象
 const state: object = reactive({
-  siderList: []
-})
+  siderList: [],
+});
 //拖拽事件
-const onMoveCallback = (e) => { console.log(e) };
+const onMoveCallback = (e) => {
+  console.log(e);
+};
 //图层点击事件处理
 const handleChangeCur = (num) => {
   //更改当前组件索引
-  stores.setCurIndex(num)
-}
+  stores.setCurIndex(num);
+};
 //监听所有组件状态赋值给图层数组
 watch(
   statusList,
   (val) => {
-    state.siderList = JSON.parse(JSON.stringify(val))
-  }, {
-  deep: true
-}
+    state.siderList = JSON.parse(JSON.stringify(val));
+  },
+  {
+    deep: true,
+  }
 );
 </script>
 <style scoped lang="less">
-
 .layer-item {
   margin-bottom: 1px;
   width: 100%;

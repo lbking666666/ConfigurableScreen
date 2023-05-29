@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapper" :style="useHandleStyle(statusList[0])">
-        <div v-for="(item, index) in statusList " :style="useHandleStyle(item)" style="position: absolute;"
+    <div class="wrapper" :style="useHandleStyle(statusList[0].style)">
+        <div v-for="(item, index) in statusList " :style="useHandleStyle(item.style)" style="position: absolute;"
             @click.stop="useHandleEvent(item)">
             <template v-if="item.name != 'layout'">
                 <component :is="state['view'][item.name]" ref="components" :index="index" />

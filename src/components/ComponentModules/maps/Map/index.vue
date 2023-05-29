@@ -41,7 +41,6 @@ const initBarCharts = () => {
 
 // 页面加载时
 onMounted(() => {
-	console.log(barCharts)
   initBarCharts();
 });
 </script>

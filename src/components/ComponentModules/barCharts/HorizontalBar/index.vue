@@ -30,7 +30,6 @@ const state: object = reactive({
   chartsBox: null,
   xData: [],
   yData: [],
-
 });
 //编辑器配置数据data
 let statusData = ref(`

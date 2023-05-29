@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :style="useHandleStyle(statusList[0])">
+  <div class="wrapper" :style="useHandleStyle(statusList[0].style)">
     <template v-for="(item, index) in statusList" :key="index">
       <template v-if="item.name != 'layout'">
         <el-popover :disabled="curIndex != index" effect="dark" :offset="-180" width="110" placement="right" :show-arrow="false" trigger="contextmenu">
@@ -18,7 +18,7 @@
               @click.stop="handleSetCur(index)"
               ref="draggable"
             >
-              <div :style="useHandleStyle(item)">
+              <div :style="useHandleStyle(item.style)">
                 <component
                   :is="state['drag'][item.name]"
                   ref="components"
@@ -66,6 +66,8 @@ import useHandleLocal from "@/Composables/useHandleLocal";
 //定义拖拽对象
 const draggable = ref();
 
+
+const components = ref();
 //调用加载菜单
 loadMenu(menuList.list, "drag");
 //控制图片zindex
